@@ -1,0 +1,21 @@
+{
+  "name": "flexi-date-formatter",
+  "version": "1.0.0",
+  "description": "A lightweight, zero-dependency date utility for formatting and relative time.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [
+    "date",
+    "format",
+    "utility",
+    "time"
+  ],
+  "author": "hetashvi",
+  "license": "MIT",
+  "dependencies": {
+    "flexi-date-formatter": "^1.0.0"
+  }
+}

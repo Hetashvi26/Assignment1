@@ -1,15 +1,15 @@
-const fs = require("fs");
-const archiver = require("archiver");
+    const fs = require("fs");
+    const archiver = require("archiver");
 
-const output = fs.createWriteStream("data.zip");
-const archive = archiver("zip");
+    const output = fs.createWriteStream("data.zip");
+    const archive = archiver("zip");
 
-archive.pipe(output);
+    archive.pipe(output);
 
-archive.directory("data/", false);
+    archive.directory("data/", false);
 
-archive.finalize();
+    archive.finalize();
 
-output.on("close", () => {
-    console.log("ZIP file created successfully.");
-});
+    output.on("close", () => {
+        console.log("ZIP file created successfully.");
+    });
