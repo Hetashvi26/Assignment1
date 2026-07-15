@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js AJAX Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #response-container {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AJAX Fetch Demonstration</h1>
+    <button id="fetch-btn">Call /gethello</button>
+    <div id="response-container"></div>
+
+    <script>
+        // Requirement 3: Call "/gethello" route from HTML page using AJAX
+        document.getElementById('fetch-btn').addEventListener('click', async () => {
+            const responseDiv = document.getElementById('response-container');
+            responseDiv.textContent = 'Loading...';
+
+            try {
+                // Performing the AJAX call using Fetch API
+                const response = await fetch('/gethello');
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const data = await response.text();
+                // Displaying the response text on the page
+                responseDiv.textContent = data;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                responseDiv.textContent = 'Failed to fetch data.';
+                responseDiv.style.color = '#dc3545';
+            }
+        });
+    </script>
+</body>
+</html>
